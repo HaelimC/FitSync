@@ -1,84 +1,94 @@
+## **🚀 My Role in the Project**  
+
+I contributed to this project as a **Data Engineer**, focusing on **building and optimizing data pipelines, preprocessing data, and designing the database structure.**  
+
+### **Key Contributions:**  
+- **Developed ETL Pipelines** → Collected and processed **workout & gym metadata** using **Python & SQL**  
+- **Database Design & Management** → Designed and optimized **PostgreSQL** schema for efficient data storage and retrieval  
+- **Data Preprocessing** → Implemented **automated data transformation workflows** for structured data analysis  
+- **Integration with External APIs** → Built **data synchronization** pipelines fetching real-time exercise & gym data from APIs  
+- **Automated Data Synchronization** → Utilized **Apache Airflow** to schedule and manage data updates efficiently  
+- **Collaboration & Documentation** → Managed technical documentation and **coordinated team efforts using Notion & Zep**  
+
+---
+
 # FitSync
 
-**FitSync**는 트레이너와 고객 간의 PT 기록, 운동 데이터, 인증 및 메타데이터를 통합 관리하는 플랫폼입니다. 이 프로젝트는 헬스장 및 트레이너가 고객과 원활하게 소통하고 데이터를 관리할 수 있도록 설계되었습니다.
+**FitSync** is a platform that integrates and manages **PT records, workout data, authentication, and metadata** between trainers and clients. This project is designed to help **gyms and trainers communicate effectively with their clients and manage data efficiently**.
 
+---
 
+## **📌 Project Overview**
 
-## **프로젝트 개요**
+FitSync was developed with the following objectives:
 
-FitSync는 다음과 같은 목적을 위해 개발되었습니다:
+- Supporting **effective communication** between trainers and clients
+- Structuring **PT records and workout data management**
+- Integrating **authentication and metadata** to improve operational efficiency
 
-- 트레이너와 고객 간의 효과적인 소통 지원
-- PT 기록 및 운동 데이터를 체계적으로 관리
-- 인증 및 메타데이터를 통합 관리하여 운영 효율성을 개선
+---
 
+## **🚀 Key Features**
 
+1. **Workout Metadata Management**
+   - Manage workout names, target muscles, primary/secondary muscle groups, workout images, etc.
+2. **Trainer-Client Relationship Management**
+   - Connect trainers and clients and manage PT records.
+3. **PT Record Storage & Retrieval**
+   - Record and manage data such as sets, repetitions, and weights.
+4. **OCR-Based PT Record Generation via Camera**
+   - Automatically recognize and recommend the most relevant workout metadata.
+5. **S3 & RDS Integration**
+   - Utilize **AWS S3 for file storage** and **AWS RDS for data management**.
+6. **Automated Data Synchronization**
+   - Use **Apache Airflow** for scheduled data synchronization and updates.
 
-## **주요 기능**
+---
 
-1. **운동 메타데이터 제공**
-   - 운동 이름, 목표 부위, 1차/2차 근육 정보, 운동 이미지 등 관리
-2. **트레이너-고객 관계 관리**
-   - 트레이너와 고객 간의 연결 및 PT 기록 관리
-3. **PT 기록 저장 및 조회**
-   - 세트, 반복 횟수, 무게 등의 데이터를 기반으로 기록 관리
-4. **카메라 사용으로 PT 기록 생성 시 OCR로 자동 인식 기능 제공**
-   - 운동 메타데이터 중 가장 유사한 항목으로 추천
-5. **S3와 RDS 통합**
-   - AWS S3를 활용한 파일 저장 및 AWS RDS를 이용한 데이터 관리
-6. **자동화된 데이터 동기화**
-   - Airflow를 활용한 주기적인 데이터 동기화 및 업데이트
+## **🛠 Prerequisites**
 
+- Python 3.10 or later
+- PostgreSQL 13 or later
+- AWS account and S3 bucket setup
+- Docker & Docker Compose
 
+---
 
-## **사전 요구 사항**
+## **💾 Database & DAG Features**
 
-- Python 3.10 이상
-- PostgreSQL 13 이상
-- AWS 계정 및 S3 버킷 생성
-- Docker 및 Docker Compose
+1. **Workout Data Synchronization**
+   - Fetch **ExerciseDB** data via API and synchronize with **S3 and RDS**.
+   - Link: [https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb)
 
+2. **Trainer-Client Connection**
+   - Manage trainer-client relationships and PT scheduling.
 
+3. **Data Visualization**
+   - Manage and analyze client PT records.
 
-## **DB 및 DAG 기능**
+4. **Gym Data Synchronization**
+   - Fetch **Seoul Gym Data** via API and synchronize with **S3 and RDS**.
+   - Link: [https://data.seoul.go.kr/dataList/OA-16142/A/1/datasetView.do](https://data.seoul.go.kr/dataList/OA-16142/A/1/datasetView.do)
 
-1. **운동 데이터 동기화**
+---
 
-   - ExerciseDB 데이터를 API로 불러오고 S3 및 RDS에 동기화합니다.
-   - link: [https://rapidapi.com/justin-WFnsXH\_t6/api/exercisedb](https://rapidapi.com/justin-WFnsXH_t6/api/exercisedb)
+## **📂 Database Structure**
 
-2. **트레이너-고객 연결**
+- **Schema**: **`raw_data`**
+  - `exercise`: Workout metadata table
+  - `customer`: Client information
+  - `trainer`: Trainer information
+  - `pt_record`: PT record table
+  - `pt_record_exercise`: PT record & exercise linking table
+  - `pt_schedule`: PT schedule table
+  - `gym_metadata`: Gym metadata table
 
-   - 고객과 트레이너의 관계를 설정하고 PT 일정을 관리합니다.
+- **Schema**: **`credential`**
+  - `user_auth`: User authentication information
 
-3. **데이터 시각화**
+---
 
-   - 고객의 PT 기록 데이터를 관리합니다.
-
-4. **GYM 데이터 동기화**
-
-   - 서울시 GYM 데이터를 API로 불러오고 S3 및 RDS에 동기화합니다.
-   - link: [https://data.seoul.go.kr/dataList/OA-16142/A/1/datasetView.do](https://data.seoul.go.kr/dataList/OA-16142/A/1/datasetView.do)
-
-
-## **데이터베이스 구조**
-
-- ​**Schema**: **`raw_data`**
-
-  - `exercise`: 운동 메타데이터 테이블
-  - `customer`: 고객 정보
-  - `trainer`: 트레이너 정보
-  - `pt_record`: PT 기록 테이블
-  - `pt_record_exercise` : PT 기록 및 운동 데이터 연동 테이블
-  - `pt_schedule` : PT 스케줄 테이블
-  - `gym_metadata` : GYM 메타데이터 테이블
-
-- ​**Schema**: **`credential`**
-
-  - `user_auth`: 사용자 인증 정보
-
-
-## **기술 스택**
+## **⚙ Technology Stack**
 
 <div style="display: flex; gap: 10px;">
   <img alt="React" src="https://img.shields.io/badge/React-61DAFB?logo=react&logoColor=000&style=plastic" />
@@ -89,16 +99,11 @@ FitSync는 다음과 같은 목적을 위해 개발되었습니다:
   <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=fff&style=plastic" />
   <img alt="Apache Airflow" src="https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apacheairflow&logoColor=fff&style=plastic" />
   <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=fff&style=plastic" />
-   <img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=fff&style=plastic" />
+  <img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=fff&style=plastic" />
 </div>
 
+---
 
-## **문의**
+## **📧 Contact**
 
-- Email: [onedersea@gmail.com](mailto\:onedersea@gmail.com)
-
-
-
-
-
-
+- Email: [onedersea@gmail.com](mailto:onedersea@gmail.com)
