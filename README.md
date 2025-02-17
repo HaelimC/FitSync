@@ -7,6 +7,7 @@ I contributed to this project as a **Data Engineer**, focusing on **building and
 - **Database Design & Management** → Designed and optimized **PostgreSQL** schema for efficient data storage and retrieval  
 - **Data Preprocessing** → Implemented **automated data transformation workflows** for structured data analysis  
 - **Integration with External APIs** → Built **data synchronization** pipelines fetching real-time exercise & gym data from APIs  
+- **Deployed REST APIs with PythonAnywhere** → Configured and managed **REST API** endpoints using PythonAnywhere for stable API operations
 - **Automated Data Synchronization** → Utilized **Apache Airflow** to schedule and manage data updates efficiently  
 - **Collaboration & Documentation** → Managed technical documentation and **coordinated team efforts using Notion & Zep**  
 
